@@ -1,16 +1,29 @@
 #include <stdio.h>
 
-int main()
+//Para indicar al compilador que se trata de una constante se emplea #define
+#define MAX_PARADAS 10
+#define MAX_RUTAS 5
+
+//Se emplea el "void" para retornar toda la funcion dada a continuacion
+//Se emplea "char" para limitar la cantidad de rutas y paradas
+//Se emplea "char*ruta" para especificar la ruta que tome el usuario
+void mostrarParadas(char rutas[][10], char paradas[][MAX_PARADAS][50], int numRutas, char *ruta)
 {
-    char rutas={"G30", "G40"};
-    char estaciones_G30={"A","B","C"};
-    char estaciones_G40={"D","E","F"};
-    
-    
-    char buses;
-    printf("Buen dia\n Las rutas de hoy son:\n G30\n G40\n Escribe tu ruta: ");
-    scanf("%c", buses);
-
-
-    return 0;
+    //Variable para seleccion de diferentes rutas
+    int i = 0;
+    while (i < numRutas) {
+        if (*ruta == '\0' || strcmp(rutas[i], ruta) == 0) {
+            printf("Paradas de la ruta %s:\n", rutas[i]);
+            int j = 0;
+            while (paradas[i][j][0] != '\0' && j < MAX_PARADAS) {
+                printf("- %s\n", paradas[i][j]);
+                j++;
+            }
+            if (*ruta != '\0') {
+                return;
+            }
+        }
+        i++;
+    }
+    printf("No se encontraron paradas para la ruta %s.\n", ruta);
 }
