@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+    char rutas={"G30", "G40"};
+    char estaciones_G30={"A","B","C"};
+    char estaciones_G40={"D","E","F"};
+    
+    
+    char buses;
+    printf("Buen dia\n Las rutas de hoy son:\n G30\n G40\n Escribe tu ruta: ");
+    scanf("%c", buses);
+
+
+    return 0;
+}
