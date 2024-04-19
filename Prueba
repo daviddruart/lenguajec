@@ -1,29 +1,47 @@
 #include <stdio.h>
 
-//Para indicar al compilador que se trata de una constante se emplea #define
-#define MAX_PARADAS 10
-#define MAX_RUTAS 5
+// Función para mostrar las paradas de la ruta G43
+void mostrarParadasG43() {
+    printf("Paradas de la ruta G43:\n");
+    printf("- Portal norte\n");
+    printf("- Modelia\n");
+    printf("- Normandia\n");
+}
 
-//Se emplea el "void" para retornar toda la funcion dada a continuacion
-//Se emplea "char" para limitar la cantidad de rutas y paradas
-//Se emplea "char*ruta" para especificar la ruta que tome el usuario
-void mostrarParadas(char rutas[][10], char paradas[][MAX_PARADAS][50], int numRutas, char *ruta)
-{
-    //Variable para seleccion de diferentes rutas
-    int i = 0;
-    while (i < numRutas) {
-        if (*ruta == '\0' || strcmp(rutas[i], ruta) == 0) {
-            printf("Paradas de la ruta %s:\n", rutas[i]);
-            int j = 0;
-            while (paradas[i][j][0] != '\0' && j < MAX_PARADAS) {
-                printf("- %s\n", paradas[i][j]);
-                j++;
-            }
-            if (*ruta != '\0') {
-                return;
-            }
-        }
-        i++;
+// Función para mostrar las paradas de la ruta F19
+void mostrarParadasF19() {
+    printf("Paradas de la ruta F19:\n");
+    printf("- Portal suba\n");
+    printf("- Suba Tv 91\n");
+    printf("- Suba Av Boyacá\n");
+}
+
+
+int main() {
+    int opcionRuta;
+    int esFeriado = 1; // 1 indica que es feriado, 0 indica que no lo es
+
+    printf("Buen dia\n Estas son las rutas que operan el dia de hoy, seleccione una:\n");
+    printf("1. G43\n");
+    printf("2. F19\n");
+    printf("3. Ruta para festivos\n");
+    printf("Ingrese el número indicativo: ");
+    scanf("%d", &opcionRuta);
+
+    // Mostrar paradas de la ruta seleccionada
+    if (opcionRuta == 1) {
+        mostrarParadasG43();
+    } else if (opcionRuta == 2) {
+        mostrarParadasF19();
+    } else {
+        printf("Opción no válida.\n");
+        return 1; // Salir del programa con código de error
     }
-    printf("No se encontraron paradas para la ruta %s.\n", ruta);
+
+    // Verificar si es feriado y mostrar el mensaje correspondiente
+    if (opcionRuta == 3 && esFeriado == 3) {
+        printf("\nLa ruta G43 funciona los días festivos.\n");
+    }
+
+    return 0;
 }
