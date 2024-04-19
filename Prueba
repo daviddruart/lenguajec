@@ -19,12 +19,12 @@ void mostrarParadasF19() {
 
 int main() {
     int opcionRuta;
-    int esFeriado = 1; // 1 indica que es feriado, 0 indica que no lo es
+    int esFeriado = 1; // 1 indica que es feriado
 
     printf("Buen dia\n Estas son las rutas que operan el dia de hoy, seleccione una:\n");
     printf("1. G43\n");
     printf("2. F19\n");
-    printf("3. Ruta para festivos\n");
+    //printf("3. Ruta para festivos\n");
     printf("Ingrese el número indicativo: ");
     scanf("%d", &opcionRuta);
 
@@ -39,7 +39,7 @@ int main() {
     }
 
     // Verificar si es feriado y mostrar el mensaje correspondiente
-    if (opcionRuta == 3 && esFeriado == 3) {
+    if (opcionRuta == 1 && esFeriado == 1) {
         printf("\nLa ruta G43 funciona los días festivos.\n");
     }
 
